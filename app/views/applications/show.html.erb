@@ -13,7 +13,6 @@
 </section>
 
 
-
 <section id="add_pet-<%= @application.id %>">
   <% if @application.status == "In Progress" %>
   <h3>Add a Pet to this Application</h3>
@@ -24,10 +23,11 @@
   <%= f.submit "Search" %>
   <% end %>
   <% end %>
-</section>
 <p>Matches:</p>
   <% if @pet_matches != nil%>
  <% @pet_matches.each do |match| %>
   <p><%= match.name %></p>
+  <%= button_to "Adopt this Pet", action: "add_pet", params: {pet_id: match.id}%>
   <% end %>
   <% end %>
+</section>
